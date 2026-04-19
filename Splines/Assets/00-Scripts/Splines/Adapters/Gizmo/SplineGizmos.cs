@@ -37,9 +37,10 @@ public static class SplineGizmos {
 		Vector3 prev, cur;
 		prev = s[start].position;
 		
-		for (int i = 1; i < segmentation; i++) {
-			cur = s.GetBezierPos(start, stop, tStep * i);
+		for (int i = 1; i < segmentation + 1; i++) {
 			
+			cur = s.GetBezierPos(start, stop, tStep * i);
+			Gizmos.DrawSphere(cur, 0.01f);
 			Gizmos.DrawLine(prev, cur);
 			prev = cur;
 		}
